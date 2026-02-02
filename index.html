@@ -1,162 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Vikash | AI/ML Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-        }
+<title>Vikash | AI ML Engineer</title>
 
-        /* Navbar */
-        nav {
-            background: rgba(0,0,0,0.6);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-        }
+<style>
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+:root{
+    --bg:#0f2027;
+    --card:#ffffff10;
+    --text:white;
+    --accent:#00e6ff;
+}
 
-        nav a:hover {
-            color: #00e6ff;
-        }
+.light{
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --text:#111;
+    --accent:#0077ff;
+}
 
-        /* Sections */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-        h1 {
-            font-size: 48px;
-        }
+body{
+    background:linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+    background-size:600% 600%;
+    animation:gradient 18s ease infinite;
+    color:var(--text);
+    overflow-x:hidden;
+    transition:0.4s;
+}
 
-        h2 {
-            color: #00e6ff;
-            margin-bottom: 20px;
-        }
+.light body{
+    background:#f5f7fa;
+}
 
-        /* Cards */
-        .cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+@keyframes gradient{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 
-        .card {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            width: 280px;
-            transition: 0.3s;
-        }
 
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-        }
+.cursor{
+    width:350px;
+    height:350px;
+    position:fixed;
+    border-radius:50%;
+    background:radial-gradient(circle,var(--accent),transparent 70%);
+    opacity:0.12;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
 
-        /* Button */
-        .btn {
-            background: #00e6ff;
-            padding: 10px 20px;
-            border-radius: 6px;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-        }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: black;
-        }
-    </style>
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    backdrop-filter:blur(12px);
+    background:var(--card);
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:600;
+    color:var(--text);
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+.toggle{
+    cursor:pointer;
+    background:var(--accent);
+    color:black;
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+
+
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.typing{
+    color:var(--accent);
+    font-weight:bold;
+    font-size:22px;
+    margin-top:15px;
+}
+
+
+
+.btn{
+    margin-top:25px;
+    padding:10px 20px;
+    background:var(--accent);
+    color:black;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+
+section{
+    padding:90px 60px;
+    max-width:1200px;
+    margin:auto;
+}
+
+h2{
+    margin-bottom:35px;
+    color:var(--accent);
+}
+
+
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    padding:25px;
+    border-radius:14px;
+    background:var(--card);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px var(--accent);
+}
+
+.card p{
+    font-size:14px;
+    line-height:1.6;
+}
+
+
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:black;
+    font-size:14px;
+}
+
+
+
+@media(max-width:600px){
+.hero h1{font-size:38px;}
+section{padding:60px 20px;}
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="cursor"></div>
+
+<!-- NAV -->
 <nav>
-    <div><b>Vikash Portfolio</b></div>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+<b>Vikash Portfolio</b>
+
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<span class="toggle" onclick="toggleMode()">☀ / 🌙</span>
+</div>
 </nav>
 
-<section>
-    <h1>Hi, I'm Vikash 👋</h1>
-    <p>AI/ML Engineer | Python | GenAI | RAG | Data Science</p>
-</section>
+<!-- HERO -->
+<div class="hero">
 
+<h1>Hi, I'm Vikash 👋</h1>
+
+<div class="typing" id="typing"></div>
+
+<a href="resume.pdf" class="btn" download>Download Resume</a>
+
+</div>
+
+<!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>
-        Computer Science graduate passionate about AI & Machine Learning.
-        Built projects like Customer Segmentation, Churn Prediction and currently developing a RAG-based AI Assistant.
-    </p>
+<h2>About Me</h2>
+<p>
+Computer Science graduate passionate about AI & ML. I build real-world ML solutions like customer segmentation, churn prediction, and currently developing a RAG-based AI assistant. I love solving business problems with data-driven intelligence.
+</p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-    <h2>Skills</h2>
-    <div class="cards">
-        <div class="card">Python</div>
-        <div class="card">Machine Learning</div>
-        <div class="card">Deep Learning</div>
-        <div class="card">SQL</div>
-        <div class="card">LangChain & RAG</div>
-        <div class="card">Git & AWS Basics</div>
-    </div>
+<h2>Skills</h2>
+<div class="grid">
+<div class="card">Python, Pandas, NumPy</div>
+<div class="card">Machine Learning & Deep Learning</div>
+<div class="card">Scikit-Learn, TensorFlow</div>
+<div class="card">LangChain, RAG, Vector DB</div>
+<div class="card">SQL, Data Pipelines</div>
+<div class="card">Git, AWS, Deployment</div>
+</div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
-    <div class="cards">
+<h2>Projects</h2>
 
-        <div class="card">
-            <h3>Customer Segmentation</h3>
-            <p>K-Means, GMM, Hierarchical Clustering</p>
-            <a class="btn" href="#">GitHub</a>
-        </div>
+<div class="grid">
 
-        <div class="card">
-            <h3>Churn Prediction</h3>
-            <p>85%+ accuracy using ML models</p>
-            <a class="btn" href="#">GitHub</a>
-        </div>
+<div class="card">
+<h3>Customer Segmentation</h3>
+<p>
+Problem → Mall couldn't target customers.  
+Solution → KMeans + GMM clustering.  
+Result → Better marketing decisions.
+</p>
+</div>
 
-        <div class="card">
-            <h3>RAG AI Assistant</h3>
-            <p>LangChain + Vector DB</p>
-            <a class="btn" href="#">GitHub</a>
-        </div>
+<div class="card">
+<h3>Churn Prediction</h3>
+<p>
+Problem → Users leaving service.  
+Solution → Supervised ML models.  
+Result → 85%+ prediction accuracy.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<h3>RAG AI Assistant</h3>
+<p>
+Problem → LLM hallucinations.  
+Solution → Retrieval-Augmented Generation.  
+Result → Context-aware reliable answers.
+</p>
+</div>
+
+</div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: vikashmahesh27@gmail.com</p>
+<h2>Contact</h2>
+<p>Email: vikashmahesh27@gmail.com</p>
 </section>
 
 <footer>
-    © 2026 Vikash | AI/ML Portfolio
+© 2026 Vikash | Built with ❤️
 </footer>
+
+<script>
+
+
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+
+
+const texts=[
+"AI / ML Engineer",
+"GenAI & RAG Developer",
+"Python Developer",
+"Data Science Enthusiast"
+];
+
+let i=0,j=0,cur="",isDeleting=false;
+
+function type(){
+cur=texts[i];
+if(!isDeleting){
+document.getElementById("typing").textContent=cur.slice(0,++j);
+if(j===cur.length)isDeleting=true;
+}else{
+document.getElementById("typing").textContent=cur.slice(0,--j);
+if(j===0){isDeleting=false;i=(i+1)%texts.length;}
+}
+setTimeout(type,isDeleting?40:90);
+}
+type();
+
+</script>
 
 </body>
 </html>
