@@ -1,81 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vikash M | AI/ML Engineer</title>
+    <meta charset="UTF-8">
+    <title>Vikash | AI/ML Portfolio</title>
+
     <style>
         body {
-            font-family: Arial;
-            background: #0f172a;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: white;
-            text-align: center;
-            padding: 40px;
         }
-        h1 {
-            font-size: 40px;
+
+        /* Navbar */
+        nav {
+            background: rgba(0,0,0,0.6);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
         }
-        .section {
-            margin-top: 40px;
-        }
-        a {
-            color: #38bdf8;
+
+        nav a {
+            color: white;
             text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00e6ff;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        h2 {
+            color: #00e6ff;
+            margin-bottom: 20px;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 280px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Button */
+        .btn {
+            background: #00e6ff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: black;
         }
     </style>
 </head>
 
 <body>
 
-<h1>Hi, I'm Vikash 👋</h1>
-<h2>AI / ML Engineer | Python | GenAI | RAG | Data Science</h2>
+<nav>
+    <div><b>Vikash Portfolio</b></div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-<div class="section">
-<h2>🚀 About Me</h2>
-<p>
-Computer Science graduate passionate about AI & Machine Learning.
-I build real-world ML projects like Customer Segmentation, Churn Prediction,
-and currently developing a RAG-based AI Assistant.
-</p>
-</div>
+<section>
+    <h1>Hi, I'm Vikash 👋</h1>
+    <p>AI/ML Engineer | Python | GenAI | RAG | Data Science</p>
+</section>
 
-<div class="section">
-<h2>🧠 Skills</h2>
-<p>
-Python • Machine Learning • Deep Learning • Pandas • Scikit-learn •
-LangChain • RAG • Streamlit • SQL • Git • AWS Basics
-</p>
-</div>
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Computer Science graduate passionate about AI & Machine Learning.
+        Built projects like Customer Segmentation, Churn Prediction and currently developing a RAG-based AI Assistant.
+    </p>
+</section>
 
-<div class="section">
-<h2>📂 Projects</h2>
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="cards">
+        <div class="card">Python</div>
+        <div class="card">Machine Learning</div>
+        <div class="card">Deep Learning</div>
+        <div class="card">SQL</div>
+        <div class="card">LangChain & RAG</div>
+        <div class="card">Git & AWS Basics</div>
+    </div>
+</section>
 
-<p>
-<b>Customer Segmentation (Clustering)</b><br>
-K-Means, GMM, Hierarchical clustering for customer behavior analysis<br>
-<a href="https://github.com/Vikash4646/customer-segmentation">GitHub Link</a>
-</p>
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
 
-<p>
-<b>Customer Churn Prediction</b><br>
-Built ML model to predict customer churn with 85%+ accuracy<br>
-<a href="https://github.com/Vikash4646/churn-prediction">GitHub Link</a>
-</p>
+        <div class="card">
+            <h3>Customer Segmentation</h3>
+            <p>K-Means, GMM, Hierarchical Clustering</p>
+            <a class="btn" href="#">GitHub</a>
+        </div>
 
-<p>
-<b>RAG AI Assistant (Building)</b><br>
-Retrieval Augmented Generation system using LangChain + Vector DB<br>
-<a href="https://github.com/Vikash4646/rag-assistant">GitHub Link</a>
-</p>
+        <div class="card">
+            <h3>Churn Prediction</h3>
+            <p>85%+ accuracy using ML models</p>
+            <a class="btn" href="#">GitHub</a>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>RAG AI Assistant</h3>
+            <p>LangChain + Vector DB</p>
+            <a class="btn" href="#">GitHub</a>
+        </div>
 
-<div class="section">
-<h2>📫 Contact</h2>
-<p>Email: vikashmahesh27@gmail.com</p>
-<p>
-<a href="https://github.com/Vikash4646">GitHub</a> |
-<a href="https://linkedin.com/in/vikash-mahudeesvaran">LinkedIn</a>
-</p>
-</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: vikashmahesh27@gmail.com</p>
+</section>
+
+<footer>
+    © 2026 Vikash | AI/ML Portfolio
+</footer>
 
 </body>
 </html>
