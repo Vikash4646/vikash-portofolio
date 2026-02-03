@@ -1,69 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vikash | AI/ML Engineer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vikash M | AI/ML Engineer</title>
 
 <style>
-/* ================= THEME ================= */
-:root{
-  --bg:#0f1115;
-  --card:#1b1e25;
-  --text:#f2f2f2;
-  --accent:#00ffd5;
-  --accent2:#6c63ff;
-  --shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-body.light{
-  --bg:#f6f7fb;
-  --card:#ffffff;
-  --text:#111;
-  --accent:#2563eb;
-  --accent2:#7c3aed;
-  --shadow:0 10px 20px rgba(0,0,0,.1);
-}
-
-/* ================= GLOBAL ================= */
+/* =========================
+   RESET
+========================= */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* =========================
+   THEME COLORS
+========================= */
+:root{
+  --bg:#0b0b0f;
+  --glass:rgba(255,255,255,0.06);
+  --text:#ffffff;
+  --accent:#7c3aed;
+  --hover:#9f67ff;
+}
+
+body.light{
+  --bg:#f6f6f8;
+  --glass:rgba(0,0,0,0.05);
+  --text:#111;
+  --accent:#6d28d9;
+  --hover:#4c1d95;
 }
 
 body{
   background:var(--bg);
   color:var(--text);
+  overflow-x:hidden;
   transition:.3s;
-  scroll-behavior:smooth;
 }
 
-section{
-  padding:80px 10%;
-  max-width:1200px;
-  margin:auto;
+/* =========================
+   PARTICLES CANVAS
+========================= */
+#particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-2;
 }
 
-h2{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:32px;
+/* =========================
+   CURSOR GLOW
+========================= */
+.cursor-glow{
+  position:fixed;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle, rgba(124,58,237,0.35) 0%, transparent 70%);
+  transform:translate(-50%,-50%);
+  z-index:-1;
 }
 
-/* ================= NAV ================= */
+/* =========================
+   NAVBAR
+========================= */
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 10%;
+  padding:20px 10%;
   position:sticky;
   top:0;
-  background:var(--bg);
-  z-index:10;
+  backdrop-filter:blur(16px);
+  background:var(--glass);
+}
+
+nav h2{
+  font-weight:700;
 }
 
 .nav-links{
@@ -72,259 +96,295 @@ nav{
   align-items:center;
 }
 
-.toggle-btn{
-  padding:6px 14px;
-  border-radius:20px;
-  background:var(--card);
+.nav-links button{
+  background:none;
+  border:none;
+  color:var(--text);
   cursor:pointer;
-  box-shadow:var(--shadow);
-  font-size:14px;
-  font-weight:600;
+  font-size:15px;
+  transition:.2s;
 }
 
-/* ================= HERO ================= */
+.nav-links button:hover{
+  color:var(--accent);
+}
+
+.toggle-btn{
+  padding:6px 14px;
+  border-radius:8px;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section{
+  padding:90px 10%;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero{
   text-align:center;
-  min-height:85vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
 }
 
 .hero h1{
-  font-size:52px;
-}
-
-.typing{
-  color:var(--accent);
-  font-weight:600;
+  font-size:48px;
+  margin-bottom:15px;
 }
 
 .hero p{
+  opacity:.8;
   max-width:650px;
-  margin:20px auto;
-  line-height:1.7;
+  margin:auto;
 }
 
 .btn{
-  padding:12px 26px;
-  border-radius:30px;
-  background:var(--accent);
-  color:black;
-  font-weight:600;
-  display:inline-block;
   margin-top:25px;
-  transition:.3s;
+  padding:12px 26px;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .btn:hover{
-  transform:scale(1.08);
+  transform:scale(1.05);
+  background:var(--hover);
 }
 
-/* ================= GRID ================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-/* ================= CARDS ================= */
+/* =========================
+   GLASS CARDS
+========================= */
 .card{
-  background:var(--card);
-  padding:28px;
+  background:var(--glass);
+  backdrop-filter:blur(16px);
   border-radius:18px;
-  box-shadow:var(--shadow);
-  transition:.35s;
+  padding:25px;
+  transition:.25s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px var(--accent);
+  transform:translateY(-6px);
+  box-shadow:0 10px 30px rgba(124,58,237,.3);
 }
 
-/* ================= SKILLS ================= */
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-}
-
-.skill{
-  padding:10px 18px;
-  border-radius:20px;
-  background:var(--card);
-  transition:.3s;
-  cursor:pointer;
-}
-
-.skill:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 15px var(--accent);
-}
-
-/* ================= CONTACT ================= */
-.contact-links{
-  display:flex;
-  justify-content:center;
+/* =========================
+   GRID
+========================= */
+.grid{
+  display:grid;
   gap:25px;
+}
+
+.projects-grid{
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.skills-grid{
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skill-list{
+  margin-top:10px;
+  font-size:14px;
+  opacity:.85;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-buttons{
+  display:flex;
+  gap:20px;
   flex-wrap:wrap;
+  justify-content:center;
+  margin-top:20px;
 }
 
-.contact-links a{
-  background:var(--card);
-  padding:12px 22px;
-  border-radius:25px;
-  transition:.3s;
+.contact-buttons button{
+  padding:10px 22px;
+  border-radius:10px;
+  border:none;
+  background:var(--accent);
+  color:#fff;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.contact-links a:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 20px var(--accent);
+.contact-buttons button:hover{
+  transform:scale(1.08);
+  background:var(--hover);
 }
 
-/* ================= FOOTER ================= */
+/* =========================
+   FOOTER
+========================= */
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   opacity:.6;
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="particles"></canvas>
+<div class="cursor-glow"></div>
+
 <!-- NAV -->
 <nav>
-  <h3>Vikash</h3>
+  <h2>Vikash</h2>
   <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <div class="toggle-btn" onclick="toggleTheme()">Dark / Light</div>
+    <button onclick="scrollToId('projects')">Projects</button>
+    <button onclick="scrollToId('skills')">Skills</button>
+    <button onclick="scrollToId('contact')">Contact</button>
+    <button class="toggle-btn" onclick="toggleTheme()">Light Mode</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Hi, I'm Vikash 👋</h1>
-  <h3><span class="typing"></span></h3>
+  <h1>AI / ML Engineer</h1>
   <p>
-    Passionate AI/ML engineer building practical systems using Machine Learning,
-    Generative AI, and real-world data solutions.
+    Fresher passionate about building real-world AI & ML systems.
+    I enjoy solving problems using Machine Learning, Data Analysis and Automation.
   </p>
-  <a class="btn" href="resume.pdf">Download Resume</a>
-</section>
-
-<!-- ABOUT -->
-<section>
-  <h2>About Me</h2>
-  <p style="text-align:center; max-width:750px; margin:auto;">
-    I focus on building scalable AI systems that solve real business problems.
-    My experience includes customer analytics, predictive modeling, automation,
-    and Generative AI applications. I enjoy working on complete pipelines —
-    from data preprocessing to deployment.
-  </p>
+  <button class="btn" onclick="window.open('VikashMResume.pdf')">Download Resume</button>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<h2>Projects</h2>
-<div class="grid">
+  <h2>Projects</h2>
 
-<div class="card">
-<h3>Customer Churn Prediction</h3>
-<p>Built ML pipeline to predict churn with 89% accuracy using Logistic Regression and Random Forest.</p>
-</div>
+  <div class="grid projects-grid">
 
-<div class="card">
-<h3>Customer Segmentation</h3>
-<p>Used K-Means clustering to segment mall customers and optimize marketing strategies.</p>
-</div>
+    <div class="card">
+      <h3>Customer Segmentation</h3>
+      <p>Used K-Means clustering to segment customers for targeted marketing.</p>
+    </div>
 
-<div class="card">
-<h3>RAG AI Assistant</h3>
-<p>Developing Retrieval-Augmented chatbot using embeddings + LLM for intelligent document search.</p>
-</div>
+    <div class="card">
+      <h3>Customer Churn Prediction</h3>
+      <p>Built ML models to predict churn with 85%+ accuracy.</p>
+    </div>
 
-</div>
+    <div class="card">
+      <h3>RAG AI Chatbot</h3>
+      <p>GenAI assistant using embeddings + vector search for Q&A.</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-<h2>Skills</h2>
+  <h2>Skills</h2>
 
-<div class="grid">
+  <div class="grid skills-grid">
 
-<div class="card">
-<h3>Machine Learning</h3>
-<p>
-Scikit-learn • Supervised Learning • Unsupervised Learning •
-K-Means Clustering • Classification • Regression • Model Evaluation • Feature Engineering
-</p>
-</div>
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <div class="skill-list">Python, Scikit-learn, Pandas, NumPy</div>
+    </div>
 
-<div class="card">
-<h3>Data Handling</h3>
-<p>
-Python • Pandas • NumPy • Data Cleaning • Data Preprocessing • Exploratory Data Analysis • SQL (Basics)
-</p>
-</div>
+    <div class="card">
+      <h3>Data & Integration</h3>
+      <div class="skill-list">REST APIs, System Integration, Automation</div>
+    </div>
 
-<div class="card">
-<h3>Integration & Automation</h3>
-<p>
-REST APIs (Basics) • Python Automation • System Integration • Data Pipelines (Basic)
-</p>
-</div>
+    <div class="card">
+      <h3>Tools</h3>
+      <div class="skill-list">Git, GitHub, Linux, VS Code</div>
+    </div>
 
-<div class="card">
-<h3>Tools</h3>
-<p>
-Git • GitHub • Google Colab • Jupyter Notebook • Streamlit • VS Code • Linux (Basics)
-</p>
-</div>
-
-<div class="card">
-<h3>Core Strengths</h3>
-<p>
-Problem Solving • Debugging • Logical Thinking • Quick Learning • Documentation • Clean Code Practices
-</p>
-</div>
-
-</div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-<h2>Contact</h2>
-<div class="contact-links">
-<a href="mailto:vikashmahesh27@gmail.com">Email</a>
-<a href="https://github.com/Vikash4646">GitHub</a>
-<a href="https://linkedin.com/in/vikash-mahudeesvaran">LinkedIn</a>
-</div>
+<section id="contact" style="text-align:center">
+  <h2>Contact</h2>
+
+  <div class="contact-buttons">
+    <button onclick="location.href='mailto:vikashmahesh27@email.com'">Email</button>
+    <button onclick="window.open('https://github.com/Vikash4646')">GitHub</button>
+    <button onclick="window.open('https://linkedin.com/in/vikash-mahudeesvaran')">LinkedIn</button>
+  </div>
 </section>
 
-<footer>© 2025 Vikash</footer>
+<footer>
+© 2026 Vikash | Built with ❤️
+</footer>
 
 <script>
+/* =============================
+   THEME
+============================= */
 function toggleTheme(){
   document.body.classList.toggle("light");
 }
 
-const words=["AI Engineer","ML Developer","GenAI Enthusiast"];
-let i=0,j=0,del=false;
-
-function type(){
-  let word=words[i];
-  document.querySelector(".typing").textContent=word.slice(0,j);
-
-  if(!del){ j++; if(j>word.length){ del=true; } }
-  else{ j--; if(j==0){ del=false; i=(i+1)%words.length;} }
-
-  setTimeout(type,90);
+/* =============================
+   SCROLL
+============================= */
+function scrollToId(id){
+  document.getElementById(id).scrollIntoView();
 }
-type();
+
+/* =============================
+   CURSOR GLOW
+============================= */
+const glow = document.querySelector(".cursor-glow");
+document.addEventListener("mousemove", e=>{
+  glow.style.left = e.clientX+"px";
+  glow.style.top = e.clientY+"px";
+});
+
+/* =============================
+   PARTICLES
+============================= */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let particles=[];
+for(let i=0;i<60;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    dx:(Math.random()-.5)*0.5,
+    dy:(Math.random()-.5)*0.5,
+    r:Math.random()*2+1
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="rgba(124,58,237,.25)";
+  particles.forEach(p=>{
+    p.x+=p.dx;
+    p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
