@@ -5,358 +5,348 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vikash | AI/ML Engineer</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===============================
-   THEME VARIABLES
-=============================== */
+/* ======================
+   ROOT COLORS
+======================*/
 :root{
-  --bg:#0b0b12;
-  --text:#ffffff;
-  --glass:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.15);
-  --primary:#7c3aed;
+  --bg:#0b0b0f;
+  --card:rgba(255,255,255,0.06);
+  --text:#fff;
+  --accent:#8b5cf6;
+  --blur:20px;
 }
 
-body.light{
+.light{
   --bg:#f6f7fb;
+  --card:rgba(255,255,255,0.6);
   --text:#111;
-  --glass:rgba(255,255,255,0.6);
-  --border:rgba(0,0,0,0.15);
-  --primary:#6d28d9;
+  --accent:#6d28d9;
 }
 
-/* ===============================
-   BASE
-=============================== */
+/* ======================
+   GLOBAL
+======================*/
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:system-ui,-apple-system,sans-serif;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
-  transition:.3s;
+  transition:0.3s;
 }
 
-section{
-  padding:80px 8%;
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
-/* ===============================
-   GLASS MORPHISM
-=============================== */
-.glass{
-  background:var(--glass);
-  backdrop-filter:blur(25px) saturate(160%);
-  -webkit-backdrop-filter:blur(25px) saturate(160%);
-  border:1px solid var(--border);
-  border-radius:22px;
-}
-
-/* ===============================
-   NAVBAR
-=============================== */
+/* ======================
+   NAV
+======================*/
 nav{
   position:fixed;
   top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:10px 30px;
+  right:20px;
   display:flex;
-  gap:30px;
-  z-index:1000;
+  gap:12px;
+  backdrop-filter:blur(var(--blur));
+  background:var(--card);
+  padding:10px 16px;
+  border-radius:50px;
 }
 
-nav a{
-  text-decoration:none;
+nav button{
+  background:none;
+  border:none;
   color:var(--text);
-  font-weight:600;
-}
-
-.toggle{
   cursor:pointer;
-  padding:6px 14px;
-  border-radius:14px;
-  background:var(--primary);
-  color:#fff;
-  font-size:14px;
+  font-weight:500;
 }
 
-/* ===============================
+/* ======================
    HERO
-=============================== */
+======================*/
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
   text-align:center;
+  padding:40px;
 }
 
 .hero h1{
-  font-size:60px;
+  font-size:4rem;
+  font-weight:700;
 }
 
 .hero span{
-  color:var(--primary);
+  color:var(--accent);
 }
 
-.buttons{
+.summary{
+  max-width:850px;
+  margin-top:20px;
+  line-height:1.7;
+  opacity:.9;
+}
+
+/* ======================
+   BUTTONS
+======================*/
+.btns{
   margin-top:30px;
   display:flex;
-  gap:20px;
+  gap:16px;
 }
 
 .btn{
-  padding:12px 28px;
-  border-radius:18px;
-  background:var(--primary);
-  color:#fff;
+  padding:12px 26px;
+  border-radius:12px;
   text-decoration:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  backdrop-filter:blur(var(--blur));
+  background:var(--card);
+  color:var(--text);
   transition:.3s;
 }
 
 .btn:hover{
-  transform:scale(1.08);
+  background:var(--accent);
+  transform:translateY(-3px);
 }
 
-/* ===============================
-   GRID LAYOUT
-=============================== */
+/* ======================
+   SECTIONS
+======================*/
+section{
+  padding:100px 8%;
+}
+
+.section-title{
+  font-size:2.2rem;
+  margin-bottom:40px;
+  text-align:center;
+  color:var(--accent);
+}
+
+/* ======================
+   GRID + CARDS
+======================*/
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
 }
 
-/* ===============================
-   PROJECT CARDS
-=============================== */
 .card{
+  backdrop-filter:blur(var(--blur));
+  background:var(--card);
   padding:25px;
+  border-radius:16px;
   transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px) scale(1.03);
-  border-color:var(--primary);
+  transform:translateY(-8px);
+  box-shadow:0 0 25px var(--accent);
 }
 
 .card h3{
   margin-bottom:10px;
-  color:var(--primary);
 }
 
-/* ===============================
-   SKILLS
-=============================== */
-.skill-group{
-  padding:25px;
-}
-
-.skill-group h3{
-  margin-bottom:15px;
-  color:var(--primary);
-}
-
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.skill{
-  padding:8px 14px;
-  border-radius:14px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  transition:.3s;
-}
-
-.skill:hover{
-  background:var(--primary);
-  color:#fff;
-  transform:scale(1.1);
-}
-
-/* ===============================
-   CONTACT
-=============================== */
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
+/* ======================
+   CONTACT BUTTONS
+======================*/
 .contact-btn{
-  padding:12px 24px;
-  border-radius:18px;
-  background:var(--primary);
-  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  border-radius:12px;
+  background:var(--card);
   text-decoration:none;
+  color:var(--text);
   transition:.3s;
 }
 
 .contact-btn:hover{
-  transform:scale(1.1);
+  background:var(--accent);
 }
 
 footer{
   text-align:center;
-  padding:30px;
-  opacity:.7;
+  padding:40px;
+  opacity:.6;
 }
 
-/* ===============================
-   CURSOR GLOW
-=============================== */
-.cursor{
-  width:280px;
-  height:280px;
-  position:fixed;
-  border-radius:50%;
-  pointer-events:none;
-  background:radial-gradient(circle,var(--primary) 0%, transparent 60%);
-  filter:blur(120px);
-  opacity:.4;
-  z-index:-1;
-}
 </style>
 </head>
 
+
 <body>
 
-<div class="cursor"></div>
+<canvas id="particles"></canvas>
 
 <!-- NAV -->
-<nav class="glass">
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-  <div class="toggle" onclick="toggleTheme()">Light Mode</div>
+<nav>
+  <button onclick="scrollToSection('projects')">Projects</button>
+  <button onclick="scrollToSection('skills')">Skills</button>
+  <button onclick="scrollToSection('contact')">Contact</button>
+  <button onclick="toggleMode()">Toggle Mode</button>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <h1>Hi, I'm <span>Vikash</span></h1>
-  <p>AI/ML enthusiast and early career engineer with hands on experience in Python, Machine Learning, and system integration. I’ve built practical projects including customer segmentation, churn prediction models, and a RAG-based AI assistant, along with REST APIs and automation workflows. I enjoy turning data into real solutions and writing clean, reliable code. Eager to contribute, learn quickly, and grow as an AI/ML and software engineer in real world environments</p>
+<div class="hero">
+  <h1>Hi I'm <span>Vikash</span></h1>
 
-  <div class="buttons">
-    <a class="btn" href="#projects">View Projects</a>
-    <a class="btn" href="resume.pdf">Resume</a>
+  <p class="summary">
+  AI/ML enthusiast and early-career engineer with hands-on experience in Python and Machine Learning. 
+  I’ve built practical projects including customer segmentation, churn prediction models, and a RAG-based AI assistant. 
+  I enjoy transforming data into meaningful solutions, writing clean and reliable code, and continuously learning new technologies. 
+  Passionate about solving real-world problems using AI and eager to grow as an ML and software engineer.
+  </p>
+
+  <div class="btns">
+    <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
+    <a href="resume.pdf" download class="btn">Download Resume</a>
   </div>
-</section>
+</div>
+
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
-  <br>
-  <div class="grid">
+<h2 class="section-title">Projects</h2>
 
-    <div class="card glass">
-      <h3>Customer Churn Prediction</h3>
-      <p>
-      Built an end-to-end ML model using Python and Scikit-learn to predict customers likely to churn.
-      Performed preprocessing, feature engineering, model tuning and achieved strong accuracy to help businesses retain customers proactively.
-      </p>
-    </div>
+<div class="grid">
 
-    <div class="card glass">
-      <h3>RAG AI Assistant</h3>
-      <p>
-      Developed a Retrieval-Augmented Generation chatbot using embeddings and vector search.
-      Enables document-aware answers with LLMs, improving contextual accuracy and reducing hallucinations.
-      </p>
-    </div>
+<div class="card">
+<h3>Customer Segmentation</h3>
+<p>
+Used K-Means clustering to group customers based on behavior and spending patterns. 
+Performed preprocessing, feature engineering, and visualization to discover meaningful customer groups for targeted marketing strategies.
+</p>
+</div>
 
-    <div class="card glass">
-      <h3>System Integration APIs</h3>
-      <p>
-      Created REST APIs and automation scripts to integrate services and streamline workflows.
-      Focused on reliability, scalability and clean architecture for production-ready deployment.
-      </p>
-    </div>
+<div class="card">
+<h3>Customer Churn Prediction</h3>
+<p>
+Built classification models to predict customer churn using supervised machine learning. 
+Applied data cleaning, feature selection, and evaluation metrics to identify at-risk users and reduce business loss.
+</p>
+</div>
 
-  </div>
+<div class="card">
+<h3>RAG AI Assistant</h3>
+<p>
+Developed a Retrieval-Augmented Generation assistant using LangChain and vector search to answer questions from custom documents with accurate, context-aware responses.
+</p>
+</div>
+
+</div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <br>
+<h2 class="section-title">Skills</h2>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="skill-group glass">
-      <h3>Machine Learning</h3>
-      <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">Scikit-learn</span>
-        <span class="skill">Pandas</span>
-        <span class="skill">NumPy</span>
-        <span class="skill">Model Evaluation</span>
-      </div>
-    </div>
+<div class="card">
+<h3>Machine Learning</h3>
+Python, Scikit-Learn, Classification, Clustering, Model Evaluation
+</div>
 
-    <div class="skill-group glass">
-      <h3>Data & Integration</h3>
-      <div class="skills">
-        <span class="skill">REST APIs</span>
-        <span class="skill">System Integration</span>
-        <span class="skill">Automation Scripts</span>
-        <span class="skill">JSON</span>
-      </div>
-    </div>
+<div class="card">
+<h3>Data</h3>
+Pandas, NumPy, Data Cleaning, Feature Engineering, Visualization
+</div>
 
-    <div class="skill-group glass">
-      <h3>Tools</h3>
-      <div class="skills">
-        <span class="skill">Git</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">Linux</span>
-        <span class="skill">VS Code</span>
-      </div>
-    </div>
+<div class="card">
+<h3>GenAI</h3>
+LangChain, RAG, Embeddings, Vector Databases (Basics)
+</div>
 
-  </div>
+<div class="card">
+<h3>Tools</h3>
+Git, GitHub, Jupyter Notebook, SQL Basics
+</div>
+
+</div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2 style="text-align:center;">Contact</h2>
-  <br>
+<h2 class="section-title">Contact</h2>
 
-  <div class="contact-buttons">
-    <a class="contact-btn" href="mailto:vikashmahesh27@gmail.com@gmail.com">Email</a>
-    <a class="contact-btn" href="https://github.com/Vikash4646">GitHub</a>
-    <a class="contact-btn" href="https://linkedin.com/in/vikash-mahudeesvaran">LinkedIn</a>
-  </div>
+<div class="grid">
+<a href="mailto:vikashmahesh27@email.com" class="contact-btn">Email</a>
+<a href="https://github.com/Vikash4646" target="_blank" class="contact-btn">GitHub</a>
+<a href="https://linkedin.com/in/vikash-mahudeesvaran" target="_blank" class="contact-btn">LinkedIn</a>
+</div>
+
 </section>
 
 <footer>
-  © 2026 Vikash
+© 2025 Vikash
 </footer>
 
+
 <script>
-/* THEME */
-function toggleTheme(){
-  document.body.classList.toggle("light");
-  const btn=document.querySelector(".toggle");
-  btn.innerText=document.body.classList.contains("light") ? "Dark Mode":"Light Mode";
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-/* CURSOR GLOW */
-const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",(e)=>{
-  cursor.style.left=e.clientX-140+"px";
-  cursor.style.top=e.clientY-140+"px";
+function toggleMode(){
+  document.body.classList.toggle('light');
+}
+
+/* particles */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-.5),
+dy:(Math.random()-.5)
 });
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#8b5cf6";
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
